@@ -1,0 +1,27 @@
+[package]
+name = "particledb-sdk"
+version = "0.2.1"
+edition = "2021"
+description = "Official Rust SDK for ParticleDB"
+license = "MIT"
+authors = ["Orkes, Inc."]
+homepage = "https://particledb.ai"
+repository = "https://github.com/particledb-ai/particledb-rust"
+documentation = "https://particledb.ai/sdks/rust/"
+readme = "README.md"
+rust-version = "1.87"
+
+[workspace]
+
+[dependencies]
+thiserror = "1"
+native-tls = "0.2"
+# Arrow IPC: native-wire results arrive as an Arrow IPC stream and prepared
+# statement parameters travel as one. Same major as the server (`arrow = 53`).
+arrow-array = { version = "53", default-features = false }
+arrow-buffer = { version = "53", default-features = false }
+arrow-ipc = { version = "53", default-features = false }
+arrow-schema = { version = "53", default-features = false }
+
+[dev-dependencies]
+postgres = "0.19"
